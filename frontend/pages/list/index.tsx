@@ -1,5 +1,5 @@
-import { ToDoListType } from "@/models/ToDoListType";
-import { ColumnType } from "@/models/ColumnType";
+import { ToDoListType } from "@/models/toDoListType";
+import { ColumnType } from "@/models/columnType";
 import Column from "@/components/column";
 import { useState, useEffect } from "react";
 
