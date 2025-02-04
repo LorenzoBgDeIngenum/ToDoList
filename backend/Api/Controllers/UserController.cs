@@ -21,7 +21,17 @@ public class UserController
         user.Id = 1;
         user.Mail = "admin@admin.com";
         user.Password = "123456";
-        user.ToDoLists = new List<int>();
+        
+        return user;
+    }
+
+    [HttpPost(Name = "PostUser")]
+    public ActionResult<User> PostUser(User user)
+    {
+        user.Id = 1;
+        user.Mail = "admin@admin.com";
+        user.Password = "123456";
+        
         return user;
     }
 }
