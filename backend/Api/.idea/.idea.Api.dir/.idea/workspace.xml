@@ -9,9 +9,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0dced1f-cc47-452f-b99d-30352aecc7cb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/obj/Api.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Api.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Api.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Api.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/net7.0/Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net7.0/Api.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/net7.0/Api.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net7.0/Api.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/Api.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/Api.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/Api.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/ref/Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/ref/Api.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/refint/Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/refint/Api.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +44,7 @@
     ".NET Launch Settings Profile.Api: http.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "ToDoList",
+    "git-widget-placeholder": "frontend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -88,6 +95,7 @@
       <updated>1738676146344</updated>
       <workItem from="1738676147921" duration="3025000" />
       <workItem from="1738680294058" duration="8000" />
+      <workItem from="1738698949007" duration="1162000" />
     </task>
     <servers />
   </component>

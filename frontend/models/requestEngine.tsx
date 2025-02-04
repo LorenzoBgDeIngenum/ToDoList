@@ -1,4 +1,4 @@
-import { UserType } from "@/models/userType";
+import { User } from "@/models/user"
 import axios from 'axios';
 
 
@@ -7,7 +7,7 @@ export class RequestEngine {
     private axios: any;
 
     constructor() {
-        this.apiAdd = "http://localhost:3000/";
+        this.apiAdd = "http://localhost:5041/";
         this.axios = axios;
     }
 
@@ -18,7 +18,7 @@ export class RequestEngine {
             url: `${this.apiAdd}user/${id}`
         };
         try {
-            const response = await axios(config);  
+            const response = await this.axios(config);  
 
             const user: User = {
                 id: response.data.id,

@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useRouter } from 'next/router'
+import { useRequestEngine } from '@/contexts/requestEngineContext'; 
 
 export default function Home() {
   const [login, setLogin] = useState(false);
   const [register, setRegister] = useState(false);
   const router = useRouter()
+  const requestEngine = useRequestEngine();
 
   function handleLoginClick() {
     setLogin(true);
