@@ -1,7 +1,13 @@
-export default function Task() {
+import { useState } from "react";
+import { TaskType } from "@/models/TaskType";
+
+export default function Task(props) {
+    const [task, setTask] = useState<TaskType>(props.task);
+
     return (
       <div>
-        <p>a task</p>
+        <h4>{task.name}</h4>
+        <p>{task.description}</p>
       </div>
     );
   }
