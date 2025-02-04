@@ -5,33 +5,37 @@ namespace Api.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class UserController
+public class UserController : ControllerBase
 {
-    private readonly ILogger<UserController> _logger;
+    private readonly DatabaseContext _context;
 
-    public UserController(ILogger<UserController> logger)
+    public UserController(DatabaseContext context)
     {
-        _logger = logger;
+        _context = context;
     }
 
-    [HttpGet(Name = "GetUser")]
-    public ActionResult<User> GetUser()
+    // GET: /User
+    [HttpGet]
+    public ActionResult<IEnumerable<User>> GetUsers()
     {
-        var user = new User();
-        user.Id = 1;
-        user.Mail = "admin@admin.com";
-        user.Password = "123456";
-        
-        return user;
+        return Ok(_context.Users.ToList());
     }
 
-    [HttpPost(Name = "PostUser")]
-    public ActionResult<User> PostUser(User user)
+    // GET: /User/1
+    [HttpGet("{id}")]
+    public ActionResult<User> GetUser(int id)
     {
-        user.Id = 1;
-        user.Mail = "admin@admin.com";
-        user.Password = "123456";
-        
-        return user;
+        var user = _context.Users.Find(id);
+        if (user == null) return NotFound();
+        return Ok(user);
+    }
+
+    // POST: /User
+    [HttpPost]
+    public ActionResult<User> CreateUser(User user)
+    {
+        _context.Users.Add(user);
+        _context.SaveChanges();
+        return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user);
     }
 }

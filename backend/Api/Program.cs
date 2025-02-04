@@ -1,49 +1,42 @@
 using Microsoft.EntityFrameworkCore;
 using Api.Model;
-using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
-builder.Services.AddControllers();
+// Connect to BD
 builder.Services.AddDbContext<DatabaseContext>(options =>
-{
-    Console.WriteLine(builder.Configuration.GetConnectionString("DefaultConnection"));
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-});
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+// Add necessary services
+builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+// Check the bd connexion when starting
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<DatabaseContext>();
     
-    if (dbContext.Database.CanConnect())
+    try
     {
-        throw new NotImplementedException("Can connect to database :)");
+        dbContext.Database.Migrate(); 
+        Console.WriteLine("Connexion to the bd :)");
     }
-    
-    if (!dbContext.Database.CanConnect())
+    catch (Exception ex)
     {
-        throw new NotImplementedException("Can't connect to database :(");
+        Console.WriteLine("Connexion to the bd not ok :(");
+        throw;
     }
 }
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-// app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();
