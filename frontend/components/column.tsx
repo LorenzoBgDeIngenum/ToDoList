@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { TaskType } from "@/models/taskType";
-import { ColumnType } from "@/models/columnType";
+import { TaskType } from "@/models/task";
+import { ColumnType } from "@/models/column";
 import Task from "./task";
 
 export default function Column(props) {

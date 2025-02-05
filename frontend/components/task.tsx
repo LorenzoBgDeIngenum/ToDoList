@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { TaskType } from "@/models/taskType";
+import { TaskType } from "@/models/task";
 
 export default function Task(props) {
     const [task, setTask] = useState<TaskType>(props.task);

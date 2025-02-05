@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS Users
 )
 
 
-CREATE TABLE IF NOT EXISTS Tasks
+CREATE TABLE IF NOT EXISTS ToDoTask
 (
     id       int identity,
     name     varchar(255) not null,
@@ -18,4 +18,16 @@ CREATE TABLE IF NOT EXISTS Tasks
     columnId int  not null
 )
 
+CREATE TABLE IF NOT EXISTS ToDoLists
+(
+    id       int identity,
+    name     varchar(255) not null,
+    userdId int  not null
+)
 
+CREATE TABLE IF NOT EXISTS Columns
+(
+    id       int identity,
+    name     varchar(255) not null,
+    listId int  not null
+    )

@@ -5,7 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c65d289-8490-4381-9dac-077dcd1a2b75" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Api/Models/Task.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Models/Task.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/.idea/.idea.Api.dir/.idea/dataSources/e9c243e9-4ff6-4472-bf49-27c52c5f6d89.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Api/.idea/.idea.Api.dir/.idea/dataSources/e9c243e9-4ff6-4472-bf49-27c52c5f6d89.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/.idea/.idea.Api.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Api/.idea/.idea.Api.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/Controllers/TaskController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Controllers/ToDoTaskController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Controllers/UserController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/Models/DatabaseContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Models/DatabaseContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/Models/Task.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Api/Models/ToDoTask.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/bin/Debug/net7.0/Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Api/bin/Debug/net7.0/Api.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/bin/Debug/net7.0/Api.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Api/bin/Debug/net7.0/Api.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/obj/Debug/net7.0/Api.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Api/obj/Debug/net7.0/Api.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/obj/Debug/net7.0/Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Api/obj/Debug/net7.0/Api.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/obj/Debug/net7.0/Api.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Api/obj/Debug/net7.0/Api.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/obj/Debug/net7.0/ref/Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Api/obj/Debug/net7.0/ref/Api.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/obj/Debug/net7.0/refint/Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Api/obj/Debug/net7.0/refint/Api.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/Api/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Api/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Database/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Database/init.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/components/column.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/components/column.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/components/task.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/components/task.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/models/ColumnType.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/models/TaskType.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/models/ToDoListType.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/models/requestEngine.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/models/requestEngine.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/pages/list/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/pages/list/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/pages/menu/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/pages/menu/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,34 +45,41 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Api/Models/Task.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Api/Controllers/ColumnController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Api/Controllers/ToDoListController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Api/Controllers/UserController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Api/Models/Column.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Api/Models/DatabaseContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Api/Models/User.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2saOgD3PeTmICseV5sEAVjvdGKu" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "Db",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;login&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -53,6 +89,8 @@
       <option name="presentableId" value="Default" />
       <updated>1738690327748</updated>
       <workItem from="1738690328862" duration="1090000" />
+      <workItem from="1738747228804" duration="591000" />
+      <workItem from="1738747953135" duration="65000" />
     </task>
     <servers />
   </component>

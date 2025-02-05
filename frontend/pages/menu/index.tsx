@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ToDoListType } from "@/models/toDoListType";
+import { ToDoListType } from "@/models/toDoList";
 import List from "../list";
 
 export default function Menu() {

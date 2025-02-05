@@ -29,13 +29,29 @@ public class UserController : ControllerBase
         if (user == null) return NotFound();
         return Ok(user);
     }
+    
+    // GET: /User/mail/email
+    [HttpGet("mail/{mail}")]
+    public ActionResult<User> GetUser(string mail)
+    {
+        var user = _context.Users.SingleOrDefault(u => u.Mail == mail);
+        if (user == null) return NotFound();
+        return Ok(user);
+    }
 
     // POST: /User
-    [HttpPost]
+    [HttpPost("add")]
     public ActionResult<User> CreateUser(User user)
     {
         _context.Users.Add(user);
         _context.SaveChanges();
         return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user);
+    }
+    
+    // POST: /User/login
+    [HttpPost("login")]
+    public ActionResult<User> Login(User user)
+    {
+        return NotFound();
     }
 }

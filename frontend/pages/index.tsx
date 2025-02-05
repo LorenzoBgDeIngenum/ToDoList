@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useRouter } from 'next/router'
 import { useRequestEngine } from '@/contexts/requestEngineContext'; 
+import CryptoJS from 'crypto-js';
 
 export default function Home() {
   const [login, setLogin] = useState(false);
@@ -24,9 +25,27 @@ export default function Home() {
      //if not ok
   }
 
-  function handleRegisterFormSubmit() {
-    //register logic 
-    setRegister(false);
+  function handleRegisterFormSubmit(event) {
+    const mail = event.target.mail.value;
+    const password = event.target.password.value;
+    const passwordHash = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
+
+    const userData = {
+      mail: mail,
+      password: passwordHash
+    }
+
+    requestEngine.addUser(userData)
+    .then((response) => {
+        console.log(response);
+        if(response === 201) {
+            alert('User added successfully');
+            setRegister(false);
+        }
+        if(response === 200) {
+          alert('User with this mail already exist !');
+      }
+    });
  }
 
   return (

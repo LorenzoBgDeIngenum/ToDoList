@@ -1,6 +1,6 @@
 namespace Api.Model;
 
-public class Task
+public class ToDoTask
 {
     public int Id { get; set; }
     public string? Name { get; set; }
