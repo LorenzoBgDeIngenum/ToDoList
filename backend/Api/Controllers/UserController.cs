@@ -52,6 +52,8 @@ public class UserController : ControllerBase
     [HttpPost("login")]
     public ActionResult<User> Login(User user)
     {
-        return NotFound();
+        var userRep = _context.Users.FirstOrDefault(u => u.Mail.Equals(user.Mail) && u.Password.Equals(user.Password));
+        if (userRep == null) return Unauthorized();
+        return Ok(userRep);
     }
 }
