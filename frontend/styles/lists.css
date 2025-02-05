@@ -1,0 +1,43 @@
+.listPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.listPage h2{
+    padding: 0 0 10px 0;
+}
+
+.listColumn{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addingTask form{ 
+    display: flex;
+    flex-direction: column;
+}
+
+.taskBox{
+    margin: 0 0 10px 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.taskButton{
+    display: flex;
+    padding: 5px;
+    justify-content: center;
+}

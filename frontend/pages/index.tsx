@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useRouter } from 'next/router'
 import { useRequestEngine } from '@/contexts/requestEngineContext'; 
 import CryptoJS from 'crypto-js';
+import { Button, HStack } from "@chakra-ui/react"
 
 export default function Home() {
   const [login, setLogin] = useState(false);
@@ -17,15 +18,31 @@ export default function Home() {
     setRegister(true);
   }
 
-  function handleLoginFormSubmit() {
-     setLogin(false);
-     //connexion logic 
-     //if ok
-     router.push('/menu');
-     //if not ok
+  async function handleLoginFormSubmit(event) {
+    event.preventDefault();
+    const mail = event.target.mail.value;
+    const password = event.target.password.value;
+    const passwordHash = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
+
+    const userData = {
+      mail: mail,
+      password: passwordHash
+    }
+
+    await requestEngine.login(userData)
+    .then((response) => {
+        console.log(response);
+        if(response.status === 401) {
+          alert('Email or password not valide');
+        }
+        else{
+          router.push("/menu");
+        }
+    });
   }
 
   function handleRegisterFormSubmit(event) {
+    event.preventDefault();
     const mail = event.target.mail.value;
     const password = event.target.password.value;
     const passwordHash = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
@@ -74,12 +91,14 @@ export default function Home() {
 
       {!login && !register &&(
       <div className="login">
-        <button onClick={handleLoginClick}>
+        <HStack>
+        <Button onClick={handleLoginClick}>
           Login
-        </button>
-        <button onClick={handleRegisterClick}>
+        </Button>
+        <Button onClick={handleRegisterClick}>
           Register
-        </button>
+        </Button>
+        </HStack>
       </div>
       )}
 

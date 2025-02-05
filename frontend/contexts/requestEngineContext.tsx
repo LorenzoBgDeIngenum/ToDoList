@@ -1,12 +1,10 @@
 import React, { createContext, useContext, useMemo } from 'react';
-import { RequestEngine } from '@/models/requestEngine'; // Adjust the path if necessary
+import { RequestEngine } from '@/models/requestEngine'; 
 
-// Create a context with a default value
 const RequestEngineContext = createContext<RequestEngine | undefined>(undefined);
 
-// Create a provider that exposes an instance of RequestEngine to all child components
 export const RequestEngineProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const requestEngine = useMemo(() => new RequestEngine(), []); // Memoize to avoid recreating the instance on every render
+    const requestEngine = useMemo(() => new RequestEngine(), []); 
 
     return (
         <RequestEngineContext.Provider value={requestEngine}>
@@ -15,7 +13,6 @@ export const RequestEngineProvider: React.FC<{ children: React.ReactNode }> = ({
     );
 };
 
-// Custom hook to use RequestEngine
 export const useRequestEngine = (): RequestEngine => {
     const context = useContext(RequestEngineContext);
     if (context === undefined) {

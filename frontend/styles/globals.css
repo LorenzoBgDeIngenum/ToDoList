@@ -35,7 +35,8 @@ body {
 }
 
 header {
-  margin : 0 0 200px 0;
+  padding: 2% 0 5% 0;
+  font-size: 3em;
 }
 
 main {
@@ -43,8 +44,7 @@ main {
 }
 
 footer {
-  position: absolute; bottom: 0;
-  padding: 0 0 5% 0;
+  padding: 5% 0 0 0;
 }
 
 * {
@@ -61,3 +61,22 @@ a {
     color-scheme: dark;
   }
 }
+
+/* FONT SIZE */
+h2{
+  font-size: 2em;
+  font-weight: bold;
+}
+
+h3{
+  font-size: 1.7em;
+}
+
+h4{
+  font-size: 1.4em;
+}
+
+p{
+  font-size: 1.2em;
+}
+

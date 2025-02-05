@@ -1,12 +1,18 @@
 import { useState, useEffect } from "react";
-import { ToDoListType } from "@/models/toDoList";
-import List from "../list";
+import { ToDoList } from "@/models/toDoList";
+import { useRequestEngine } from '@/contexts/requestEngineContext'; 
+import Link from 'next/link'
 
 export default function Menu() {
-    const [toDoLists, setToDoLists] = useState<ToDoListType[]>([]);
+    const [toDoLists, setToDoLists] = useState<ToDoList[]>([]);
+    const requestEngine = useRequestEngine();
 
     useEffect(() => {
-      //Fetch all the list with user Id
+      requestEngine.getToDoListsByUserId(1)
+      .then((response) => {
+        console.log(response);
+        setToDoLists(response);
+      });
     },[]);
 
     return (
@@ -14,7 +20,11 @@ export default function Menu() {
         <h2>My ToDo Lists</h2>
         <div>
           {toDoLists.map((toDoList) =>
-            <List key={(toDoList.id)} toDoList={toDoList} />
+            <Link  key={(toDoList.id)} href="list">
+              <div>
+                <h3>{toDoList.name}</h3>
+              </div>
+            </Link>
           )}
         </div>
       </div>

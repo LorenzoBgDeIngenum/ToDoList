@@ -21,6 +21,15 @@ public class ToDoListController : ControllerBase
         return Ok(_context.ToDoLists.ToList());
     }
     
+    // GET: /ToDoList/1
+    [HttpGet("{id}")]
+    public ActionResult<ToDoList> GetToDoList(int id)
+    {
+        var toDolist = _context.ToDoLists.Find(id);
+        if (toDolist == null) return NotFound();
+        return Ok(toDolist);
+    }
+    
     // GET: /ToDoList/byUserId/id
     [HttpGet("byUserId/{id}")]
     public ActionResult<ToDoList> GetToDoLists(int id)
