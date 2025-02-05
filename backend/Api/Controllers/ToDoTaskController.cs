@@ -21,14 +21,21 @@ public class ToDoTaskController : ControllerBase
         return Ok(_context.ToDoTasks.ToList());
     }
     
-    // GET: /ToDoTask/byColumnId/listId
+    // GET: /ToDoTask/byColumnId/columnId
     [HttpGet("byColumnId/{columnId}")]
-    public ActionResult<IEnumerable<ToDoTask>> GetToDoTask(int columnId)
+    public ActionResult<IEnumerable<ToDoTask>> GetToDoTasks(int columnId)
     {
         var tasks = _context.ToDoTasks.Where(t => t.ColumnId.Equals(columnId)).ToList();
         return Ok(tasks);
     }
-
     
+    // POST: /ToDoTask/add
+    [HttpPost("add")]
+    public ActionResult<ToDoTask> CreateToDoTask(ToDoTask toDoTask)
+    {
+        _context.ToDoTasks.Add(toDoTask);
+        _context.SaveChanges();
+        return CreatedAtAction(nameof(CreateToDoTask), new { id = toDoTask.Id }, toDoTask);
+    }
     
 }

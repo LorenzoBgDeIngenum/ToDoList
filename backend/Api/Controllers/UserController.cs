@@ -39,7 +39,7 @@ public class UserController : ControllerBase
         return Ok(user);
     }
 
-    // POST: /User
+    // POST: /User/add
     [HttpPost("add")]
     public ActionResult<User> CreateUser(User user)
     {
