@@ -9,8 +9,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0dced1f-cc47-452f-b99d-30352aecc7cb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Api.dir/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Api.dir/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Api.dir/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Api.dir/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Api.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Api.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/ToDoTaskController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/ToDoTaskController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net7.0/Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net7.0/Api.dll" afterDir="false" />
@@ -19,9 +17,9 @@
       <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/Api.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/Api.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/ref/Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/ref/Api.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/refint/Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/refint/Api.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/components/columnList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/components/columnList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/next.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/next.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/components/task.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/components/task.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/pages/_app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/pages/list/[listId]/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/pages/list/[listId]/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../frontend/pages/list/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/pages/list/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +46,7 @@
     &quot;.NET Launch Settings Profile.Api: http.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;requete-frontend&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dnd&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -104,7 +102,8 @@
       <workItem from="1738748022440" duration="4761000" />
       <workItem from="1738789486793" duration="2403000" />
       <workItem from="1738794957044" duration="237000" />
-      <workItem from="1738828471385" duration="1333000" />
+      <workItem from="1738828471385" duration="2773000" />
+      <workItem from="1738845749919" duration="327000" />
     </task>
     <servers />
   </component>

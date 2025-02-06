@@ -5,7 +5,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: rgb(2,0,36);
+    --background: linear-gradient(151deg, rgba(2,0,36,1) 0%, rgba(5,5,65,1) 35%, rgba(9,51,62,1) 77%, rgba(15,102,120,1) 100%);
     --foreground: #ededed;
   }
 }
@@ -37,10 +38,14 @@ body {
 header {
   padding: 2% 0 5% 0;
   font-size: 3em;
+  
 }
 
 main {
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: flex;
+  align-items: center;
 }
 
 footer {
@@ -66,6 +71,7 @@ a {
 h2{
   font-size: 2em;
   font-weight: bold;
+  padding: 0 0 10px 0;
 }
 
 h3{

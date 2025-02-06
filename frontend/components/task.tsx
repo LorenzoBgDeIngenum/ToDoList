@@ -2,15 +2,26 @@ import { ToDoTask } from "@/models/toDoTask";
 import { Box, Grid, GridItem, Button } from '@chakra-ui/react'
 import { useRequestEngine } from '@/contexts/requestEngineContext';
 import { useState, useEffect } from "react";
+import {useDraggable} from '@dnd-kit/core';
+import {CSS} from '@dnd-kit/utilities';
 
 export default function Task(props) {
     const task: ToDoTask = props.task;
     const requestEngine = useRequestEngine();
-    const [colspan, setColspan] = useState(3)
-
-    useEffect(() => {
-      caclColSpan();
-  }, []); 
+    const {attributes, listeners, setNodeRef, transform} = useDraggable({
+      id: task.id,
+      data: {
+        name: task.name,
+        description: task.description,
+        oldColumnId: task.columnId,
+        columnNumber: task.columnNumber,
+        columnId: null,
+        id: task.id
+      },
+    });
+    const style = {
+      transform: CSS.Translate.toString(transform),
+    };
 
     function handleDeleteClick(taskId: number) {
       requestEngine.deleteTask(taskId)
@@ -22,22 +33,14 @@ export default function Task(props) {
         });
     }
 
-    function caclColSpan() {
-      if(props.leftColumnId){
-        setColspan(prev => prev - 1);
-      }
-      if(props.rightColumnId){
-        setColspan(prev => prev - 1);
-      }
-    }
-
-    function handleGoClick(taskId: number, direction: number) {
+    function handleGoClick(taskId: number, direction: number, add: number) {
       const ids = [props.leftColumnId, props.rightColumnId];
       const taskData = {
         id: task.id,
         name: task.name,
         description: task.description,
-        columnId: ids[direction]
+        columnId: ids[direction],
+        columnNumber: task.columnNumber + add
       }
 
       requestEngine.modifyTask(taskData)
@@ -50,24 +53,34 @@ export default function Task(props) {
     }
 
     return (
-      <Box bg='#eee' w='100%' className="taskBox">
+      <Box bg='#eee' w='100%' className="taskBox" ref={setNodeRef} style={style} {...listeners} {...attributes}>
         <h4>{task.name}</h4>
         <p>{task.description}</p>
         <Grid 
-          templateColumns={`repeat(${colspan}, 1fr)`}
+          templateColumns={`repeat(2, 1fr)`}
           templateRows='repeat(2, 1fr)'
           color='#000'
           gap={2}>
           
-          {props.leftColumnId &&(
-          <GridItem  bg='#fff' className="taskButton" colSpan={colspan}>
-            <Button onClick={() => handleGoClick(task.id, 0)}>Go left</Button>
+          {props.leftColumnId && (
+          <GridItem  bg='#fff' className="taskButton">
+            <Button onClick={() => handleGoClick(task.id, 0, -1)}>Go left</Button>
+          </GridItem>
+          )}
+          {!props.leftColumnId && (
+          <GridItem  bg='#fff' className="taskButton">
+            <Button onClick={() => handleGoClick(task.id, 0, -1)} disabled>Go left</Button>
           </GridItem>
           )}
 
-          {props.rightColumnId &&(
-          <GridItem  bg='#fff' className="taskButton" colSpan={colspan}>
-            <Button onClick={() => handleGoClick(task.id, 1)}>Go right</Button>
+          {props.rightColumnId && (
+          <GridItem  bg='#fff' className="taskButton">
+            <Button onClick={() => handleGoClick(task.id, 1, 1)}>Go right</Button>
+          </GridItem>
+          )}
+          {!props.rightColumnId && (
+          <GridItem  bg='#fff' className="taskButton">
+            <Button onClick={() => handleGoClick(task.id, 1, 1)} disabled>Go right</Button>
           </GridItem>
           )}
 

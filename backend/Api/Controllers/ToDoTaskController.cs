@@ -50,14 +50,33 @@ public class ToDoTaskController : ControllerBase
     
     // PUT: /ToDoTask
     [HttpPut]
-    public ActionResult<ToDoTask> PutToDoTask(ToDoTask toDoTask)
+    public ActionResult PutToDoTask(ToDoTask toDoTask)
     {
-        var t = _context.ToDoTasks.Find(toDoTask.Id);
-        t.ColumnId = toDoTask.ColumnId;
-        t.Description = toDoTask.Description;
-        t.Name = toDoTask.Name;
-        _context.SaveChanges();
-        return Ok();
+        try
+        {
+            var t = _context.ToDoTasks.Find(toDoTask.Id);
+            if (t == null)
+            {
+                return NotFound("Task not found.");
+            }
+
+            if (toDoTask.ColumnNumber < 1 || toDoTask.ColumnNumber > 3 ||
+                (toDoTask.ColumnNumber != t.ColumnNumber + 1 && toDoTask.ColumnNumber != t.ColumnNumber - 1))
+            {
+                return BadRequest("Invalid column number.");
+            }
+            t.ColumnId = toDoTask.ColumnId;
+            t.Description = toDoTask.Description;
+            t.Name = toDoTask.Name;
+            t.ColumnNumber = toDoTask.ColumnNumber;
+            _context.SaveChanges();
+
+            return Ok();
+        }
+        catch (Exception e)
+        {
+            return BadRequest($"An error occurred: {e.Message}");
+        }
     }
     
 }

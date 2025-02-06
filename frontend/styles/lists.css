@@ -41,3 +41,11 @@
     padding: 5px;
     justify-content: center;
 }
+
+.droppable{
+    min-width: 100%;
+}
+
+.listAdd{
+    padding: 10px 0 0 0;
+}

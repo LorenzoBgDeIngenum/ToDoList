@@ -54,7 +54,7 @@ export default function Menu() {
         <h2>My ToDo Lists</h2>
         <div>
           {toDoLists.map((toDoList) =>
-            <Link key={(toDoList.id)} href={("list/" + toDoList.id)}>
+            <Link key={(toDoList.id)} href={`list/${toDoList.id}`}>
               <div>
                 <h3>{toDoList.name}</h3>
               </div>
@@ -62,7 +62,7 @@ export default function Menu() {
           )}
         </div>
         {!isAddList &&(
-            <div>
+            <div className="listAdd">
               <Button onClick={handleAddListClick}>
                 New List
               </Button>

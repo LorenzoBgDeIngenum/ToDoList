@@ -1,5 +1,6 @@
 export interface Column {
     id : number,
     name : string,
-    listId : number
+    listId : number,
+    order : number
 }

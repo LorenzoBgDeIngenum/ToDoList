@@ -107,6 +107,7 @@ export class RequestEngine {
                 id: column.id,
                 name: column.name,
                 listId: column.listId,
+                order: column.order,
             }));
     
             return columns;
@@ -128,6 +129,7 @@ export class RequestEngine {
                 name: task.name,
                 description: task.description,
                 columnId: task.columnId,
+                columnNumber : task.columnNumber
             }));
     
             return tasks;
@@ -171,6 +173,15 @@ export class RequestEngine {
         try {
             const response = await axios.post(`${this.apiAdd}user/login`, userInfo);
             return response.data;
+        } catch (error: any) {
+            return error.response.data;
+        }
+    }
+
+    public async addColumn(newColumn): Promise<number | Error> {
+        try {
+            const response = await axios.post(`${this.apiAdd}column/add`, newColumn);
+            return response.status;
         } catch (error: any) {
             return error.response.data;
         }

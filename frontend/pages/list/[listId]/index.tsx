@@ -4,29 +4,64 @@ import ColumnList from "@/components/columnList";
 import { useState, useEffect } from "react";
 import { useRequestEngine } from '@/contexts/requestEngineContext'; 
 import { Grid, GridItem, Button, Textarea } from "@chakra-ui/react";
+import Droppable from "@/components/droppable";
+import { useRouter } from "next/router";
+import {DndContext, useDndMonitor} from '@dnd-kit/core';
 
-export default function List( {props} ) {
+export default function List() {
     const [toDoList, setToDoList] = useState<ToDoList>();
     const [columns, setColumns] = useState<Column[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [refreshTrigger, setRefreshTrigger] = useState(0)
     const [isAddingTask, setIsAddingTask] = useState<boolean>(false);
     const requestEngine = useRequestEngine();
+    const router = useRouter();
+    const {listId} = router.query;
+    useDndMonitor({
+      onDragEnd(event) {
+        handleDragEnd(event);
+      },
+    });
     
     useEffect(() => {
+      if (!router.isReady) return; 
       fetchToDoList();
       fetchColumns();
       setLoading(false);
-      //console.log(props.listId);
-    },[]);
+    }, [router.isReady]); 
+
+    function handleDragEnd(event) {
+        const taskData = event.active.data.current;
+        console.log("Data before ");
+        console.log(taskData);
+
+        if(event.collisions.length > 0){
+
+          if(taskData.oldColumnId != event.collisions[0].id){
+            taskData.columnNumber = event.collisions[0].data.droppableContainer.data.current.order;
+            taskData.columnId = event.collisions[0].id;
+            console.log("Data after ");
+            console.log(taskData);
+
+            requestEngine.modifyTask(taskData)
+            .then((response) => {
+                console.log(response);
+                if(response === 200) {
+                    setRefreshTrigger(prev => prev + 1);
+                }
+            });
+          }
+        }
+      }
+    
 
     async function fetchToDoList(){
-      const reponse = await requestEngine.getToDoListById(5);
+      const reponse = await requestEngine.getToDoListById(listId);
       setToDoList(reponse);
     }
 
     async function fetchColumns() {
-      const reponse = await requestEngine.getColumnsByListId(5);
+      const reponse = await requestEngine.getColumnsByListId(listId);
       setColumns(reponse);
     }
 
@@ -43,14 +78,14 @@ export default function List( {props} ) {
         const taskData = {
           name: name,
           description: description,
-          columnId: columns[0].id
+          columnId: columns[0].id,
+          columnNumber: 1
         }
 
         requestEngine.addTask(taskData)
         .then((response) => {
             console.log(response);
             if(response === 201) {
-                alert('Task added successfully');
                 setIsAddingTask(false);
                 fetchColumns();
                 setRefreshTrigger(prev => prev + 1);
@@ -69,6 +104,8 @@ export default function List( {props} ) {
         {!loading &&(
           <div className="listPage">
             <h2>{ !!toDoList && toDoList.name}</h2>
+
+            {(columns.length > 0) &&(
             <Grid 
               templateColumns={"repeat(" + columns.length + ", 1fr)"}
               color='#000'
@@ -80,14 +117,17 @@ export default function List( {props} ) {
               )}
               {columns.map((column, index) =>
                 <GridItem key={(column.id)} bg='#fff' className="listColumn">
-                  <ColumnList column={column} refreshTrigger={refreshTrigger} setRefreshTrigger={setRefreshTrigger} 
-                      leftColumnId={index > 0 ? columns[index - 1].id : null} 
-                      rightColumnId={index < columns.length - 1 ? columns[index + 1].id : null} 
-                    />
+                  <Droppable id={column.id} key={column.id} order={column.order}>
+                    <ColumnList column={column} refreshTrigger={refreshTrigger} setRefreshTrigger={setRefreshTrigger} 
+                        leftColumnId={index > 0 ? columns[index - 1].id : null} 
+                        rightColumnId={index < columns.length - 1 ? columns[index + 1].id : null} 
+                      />
+                  </Droppable>
                 </GridItem>
               )}
             </Grid>
-            
+            )}
+
             {!isAddingTask &&(
             <div>
               <Button onClick={handleAddTaskClick}>
