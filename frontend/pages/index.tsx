@@ -3,12 +3,15 @@ import { useRouter } from 'next/router'
 import { useRequestEngine } from '@/contexts/requestEngineContext'; 
 import CryptoJS from 'crypto-js';
 import { Button, HStack } from "@chakra-ui/react"
+import { useUser } from "@/contexts/userContext";
+import { User } from "@/models/user";
 
 export default function Home() {
   const [login, setLogin] = useState(false);
   const [register, setRegister] = useState(false);
-  const router = useRouter()
+  const router = useRouter();
   const requestEngine = useRequestEngine();
+  const { user, setUser } = useUser();
 
   function handleLoginClick() {
     setLogin(true);
@@ -18,6 +21,16 @@ export default function Home() {
     setRegister(true);
   }
 
+  function loginUser(userData){
+    const userToSet: User ={
+      id : userData.id,
+      mail : userData.mail,
+      password : userData.password
+    }
+    console.log(userToSet);
+    setUser(userToSet);
+  }
+  
   async function handleLoginFormSubmit(event) {
     event.preventDefault();
     const mail = event.target.mail.value;
@@ -36,7 +49,9 @@ export default function Home() {
           alert('Email or password not valide');
         }
         else{
-          router.push("/menu");
+          loginUser(response);
+          console.log(user);
+          router.push("/list");
         }
     });
   }
@@ -68,7 +83,7 @@ export default function Home() {
   return (
     <div>
       {login &&(
-      <div className="register">
+      <div className="login">
         <h2>Login</h2>
         <form onSubmit={handleLoginFormSubmit}>
           <label>Mail : <input type="text" name="mail" /></label>
@@ -79,7 +94,7 @@ export default function Home() {
       )}
 
       {register &&(
-      <div className="login">
+      <div className="register">
         <h2>Register</h2>
         <form onSubmit={handleRegisterFormSubmit}>
           <label>Mail : <input type="text" name="mail" /></label>

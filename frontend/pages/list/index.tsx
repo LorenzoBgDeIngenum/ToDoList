@@ -1,110 +1,83 @@
-import { ToDoList } from "@/models/toDoList";
-import { Column } from "@/models/column";
-import ColumnList from "@/components/columnList";
 import { useState, useEffect } from "react";
+import { ToDoList } from "@/models/toDoList";
 import { useRequestEngine } from '@/contexts/requestEngineContext'; 
-import { Grid, GridItem, Button, Textarea } from "@chakra-ui/react";
-import { ToDoTask } from "@/models/toDoTask";
+import Link from 'next/link'
+import { useUser } from "@/contexts/userContext";
+import { Button } from "@chakra-ui/react";
 
-export default function List() {
-    const [toDoList, setToDoList] = useState<ToDoList>();
-    const [columns, setColumns] = useState<Column[]>([]);
-    const [loading, setLoading] = useState<boolean>(true);
-    const [isAddingTask, setIsAddingTask] = useState<boolean>(false);
+export default function Menu() {
+    const [toDoLists, setToDoLists] = useState<ToDoList[]>([]);
     const requestEngine = useRequestEngine();
-    
+    const { user, setUser } = useUser();
+    const [isAddList, setIsAddList] = useState<boolean>(false);
+
     useEffect(() => {
-      fetchToDoList();
-      fetchColumns();
-      setLoading(false);
+      console.log(user);
+      fetchToDoLists();
     },[]);
 
-    async function fetchToDoList(){
-      const reponse = await requestEngine.getToDoListById(5);
-      setToDoList(reponse);
+    function fetchToDoLists(){
+      requestEngine.getToDoListsByUserId(1)
+      .then((response) => {
+        console.log(response);
+        setToDoLists(response);
+      });
     }
 
-    async function fetchColumns(){
-      const reponse = await requestEngine.getColumnsByListId(5);
-      setColumns(reponse);
-    }
+    function handleAddListFormSubmit(event){
+      event.preventDefault();
+      const name = event.target.name.value;
+      const userId = 1;
 
-    function handleAddTaskClick() {
-      setIsAddingTask(true);
-    }
+      const listData = {
+        name : name,
+        userId : userId
+      }
 
-    function handleAddTaskFormSubmit(event) {
-        event.preventDefault();
-        const name = event.target.name.value;
-        const description = event.target.description.value;
-    
-        const taskData = {
-          name: name,
-          description: description,
-          columnId: columns[0].id
+    requestEngine.addList(listData)
+    .then((response) => {
+        console.log(response);
+        if(response === 201) {
+            alert('List added successfully');
+            setIsAddList(false);
+            fetchToDoLists();
         }
+    });
+    }
 
-        requestEngine.addTask(taskData)
-        .then((response) => {
-            console.log(response);
-            if(response === 201) {
-                alert('Task added successfully');
-                setIsAddingTask(false);
-            }
-        });
-    
-     }
+    function handleAddListClick() {
+      setIsAddList(true);
+    }
 
     return (
-      <div>
-        {loading &&(
-          <div>
-            <p>Loading</p>
-          </div>
-        )}
-
-        {!loading &&(
-          <div className="listPage">
-            <h2>{ !!toDoList && toDoList.name}</h2>
-            <Grid 
-              templateColumns={"repeat(" + columns.length + ", 1fr)"}
-              color='#000'
-              gap={2}>
-              {columns.map((column) =>
-              <GridItem key={(column.id)} bg='#fff' className="title listColumn">
-                <h3>{column.name}</h3>
-              </GridItem>
-              )}
-              {columns.map((column) =>
-                <GridItem key={(column.id)} bg='#fff' className="listColumn">
-                  <ColumnList column={column} />
-                </GridItem>
-              )}
-            </Grid>
-            
-            {!isAddingTask &&(
+      <>
+        <h2>My ToDo Lists</h2>
+        <div>
+          {toDoLists.map((toDoList) =>
+            <Link key={(toDoList.id)} href={("list/" + toDoList.id)}>
+              <div>
+                <h3>{toDoList.name}</h3>
+              </div>
+            </Link>
+          )}
+        </div>
+        {!isAddList &&(
             <div>
-              <Button onClick={handleAddTaskClick}>
-                New Task
+              <Button onClick={handleAddListClick}>
+                New List
               </Button>
             </div>
-            )}
-
-            {isAddingTask &&(
-              <div className="addingTask">
-              <h3>New Task</h3>
-              <form onSubmit={handleAddTaskFormSubmit}>
-                <label>Name : <input type="text" name="name" /></label>
-                <label>Description : <Textarea name="description" /></label>
-                <input type="submit" name="Submit" />
-              </form>
-            </div>
-            )}
+          )}
+          {isAddList &&(
+          <div>
+            <h2>Add List</h2>
+            <form onSubmit={handleAddListFormSubmit}>
+              <label>Name : <input type="text" name="name" /></label>
+              <input type="submit" name="Submit" />
+            </form>
           </div>
-
-          
-        )}
-      </div>
+      )}
+      </>
     );
   }
   

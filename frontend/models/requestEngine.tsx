@@ -137,6 +137,15 @@ export class RequestEngine {
     }
 
     ////////////////////////////////////////// POST ////////////////////////////////////////
+    public async addList(newList): Promise<number | Error> {
+        try {
+            const response = await axios.post(`${this.apiAdd}toDoList/add`, newList);
+            return response.status;
+        } catch (error: any) {
+            return error.response.data;
+        }
+    }
+
     public async addUser(newUser): Promise<number | Error> {
         try {
             if(await this.userWithMailExist(newUser.mail)){
@@ -167,6 +176,25 @@ export class RequestEngine {
         }
     }
 
+    ////////////////////////////////////////// DELETE ////////////////////////////////////////
+    public async deleteTask(taskId): Promise<number | Error> {
+        try {
+            const response = await axios.delete(`${this.apiAdd}toDoTask/${taskId}`);
+            return response.status;
+        } catch (error: any) {
+            return error.response.data;
+        }
+    }
+
+    ////////////////////////////////////////// PUT ////////////////////////////////////////
+    public async modifyTask(modifyTask): Promise<number | Error> {
+        try {
+            const response = await axios.put(`${this.apiAdd}toDoTask`, modifyTask);
+            return response.status;
+        } catch (error: any) {
+            return error.response.data;
+        }
+    }
 
     ////////////////////////////////////////// Function ////////////////////////////////////////
     public async userWithMailExist(mail : string): Promise<string | boolean | undefined> {

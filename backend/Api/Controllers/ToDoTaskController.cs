@@ -38,4 +38,26 @@ public class ToDoTaskController : ControllerBase
         return CreatedAtAction(nameof(CreateToDoTask), new { id = toDoTask.Id }, toDoTask);
     }
     
+    // DELETE: /ToDoTask/id
+    [HttpDelete("{id}")]
+    public ActionResult<ToDoTask> DeleteToDoTask(int id)
+    {
+        var t = _context.ToDoTasks.First(t => t.Id == id);
+        _context.ToDoTasks.Remove(t);
+        _context.SaveChanges();
+        return Ok();
+    }
+    
+    // PUT: /ToDoTask
+    [HttpPut]
+    public ActionResult<ToDoTask> PutToDoTask(ToDoTask toDoTask)
+    {
+        var t = _context.ToDoTasks.Find(toDoTask.Id);
+        t.ColumnId = toDoTask.ColumnId;
+        t.Description = toDoTask.Description;
+        t.Name = toDoTask.Name;
+        _context.SaveChanges();
+        return Ok();
+    }
+    
 }

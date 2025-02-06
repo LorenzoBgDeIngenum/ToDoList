@@ -9,36 +9,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0dced1f-cc47-452f-b99d-30352aecc7cb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Api.dir/.idea/dataSources/e9c243e9-4ff6-4472-bf49-27c52c5f6d89.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Api.dir/.idea/dataSources/e9c243e9-4ff6-4472-bf49-27c52c5f6d89.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Api.dir/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Api.dir/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Api.dir/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Api.dir/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Api.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Api.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/TaskController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/ToDoTaskController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/UserController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/DatabaseContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/DatabaseContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Task.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/ToDoTask.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/ToDoTaskController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/ToDoTaskController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net7.0/Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net7.0/Api.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net7.0/Api.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net7.0/Api.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/Api.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/Api.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/Api.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/Api.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/Api.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/ref/Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/ref/Api.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net7.0/refint/Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net7.0/refint/Api.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.model.nuget.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Database/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../Database/init.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/components/column.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/components/column.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/components/task.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/components/task.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/models/ColumnType.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/models/TaskType.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/models/ToDoListType.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/models/requestEngine.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/models/requestEngine.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/components/columnList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/components/columnList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../frontend/next.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/next.config.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../frontend/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/pages/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../frontend/pages/list/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/pages/list/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../frontend/pages/menu/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../frontend/pages/menu/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +48,7 @@
     &quot;.NET Launch Settings Profile.Api: http.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;login&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;requete-frontend&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -117,6 +101,10 @@
       <workItem from="1738680294058" duration="8000" />
       <workItem from="1738698949007" duration="1162000" />
       <workItem from="1738747828931" duration="121000" />
+      <workItem from="1738748022440" duration="4761000" />
+      <workItem from="1738789486793" duration="2403000" />
+      <workItem from="1738794957044" duration="237000" />
+      <workItem from="1738828471385" duration="1333000" />
     </task>
     <servers />
   </component>
