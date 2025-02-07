@@ -1,8 +1,10 @@
-import { User } from "./user"
+import axios from 'axios';
+
+import { User } from "./user";
 import { ToDoList } from "./toDoList";
 import { Column } from "./column";
 import { ToDoTask } from "./toDoTask";
-import axios from 'axios';
+
 
 
 export class RequestEngine {
@@ -58,7 +60,7 @@ export class RequestEngine {
     public async getToDoListsByUserId(userId : number): Promise<ToDoList[]>{
         const config = {
             method: 'get',
-            url: `${this.apiAdd}todolist/byuserid/${userId}`
+            url: `${this.apiAdd}toDoList/byUserId/${userId}`
         };
         try {
             const response = await this.axios(config);  
@@ -129,7 +131,6 @@ export class RequestEngine {
                 name: task.name,
                 description: task.description,
                 columnId: task.columnId,
-                columnNumber : task.columnNumber
             }));
     
             return tasks;
@@ -174,7 +175,7 @@ export class RequestEngine {
             const response = await axios.post(`${this.apiAdd}user/login`, userInfo);
             return response.data;
         } catch (error: any) {
-            return error.response.data;
+            return error.response;
         }
     }
 

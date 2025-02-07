@@ -18,24 +18,52 @@ public class ColumnController : ControllerBase
     [HttpGet]
     public ActionResult<IEnumerable<Column>> GetColumns()
     {
-        return Ok(_context.Columns.ToList());
+        try
+        {
+            var columns = _context.Columns.ToList();
+            
+            return Ok(columns);
+        }
+        catch (Exception ex)
+        {
+            
+            return StatusCode(500, $"Internal server error: {ex.Message}");
+        }
     }
-    
-    // GET: /Column/byListId/listId
+
+    // GET: /Column/byListId/{listId}
     [HttpGet("byListId/{listId}")]
-    public ActionResult<IEnumerable<Column>> GetColumns(int listId)
+    public ActionResult<IEnumerable<Column>> GetColumnsByListId(int listId)
     {
-        var columns = _context.Columns.Where(t => t.ListId.Equals(listId)).ToList();
-        return Ok(columns);
+        try
+        {
+            var columns = _context.Columns.Where(c => c.ListId == listId).ToList();
+            if (columns == null || !columns.Any()) return NotFound("No columns found for the provided listId.");
+            
+            return Ok(columns);
+        }
+        catch (Exception ex)
+        {
+            
+            return StatusCode(500, $"Internal server error: {ex.Message}");
+        }
     }
-    
+
     // POST: /Column/add
     [HttpPost("add")]
     public ActionResult<Column> CreateColumn(Column column)
     {
-        _context.Columns.Add(column);
-        _context.SaveChanges();
-        return CreatedAtAction(nameof(CreateColumn), new { id = column.Id }, column);
+        try
+        {
+            _context.Columns.Add(column);
+            _context.SaveChanges();
+            
+            return CreatedAtAction(nameof(GetColumnsByListId), new { listId = column.ListId }, column);
+        }
+        catch (Exception ex)
+        {
+            
+            return StatusCode(500, $"Internal server error: {ex.Message}");
+        }
     }
-    
 }

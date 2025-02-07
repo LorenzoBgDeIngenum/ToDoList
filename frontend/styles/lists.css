@@ -49,3 +49,14 @@
 .listAdd{
     padding: 10px 0 0 0;
 }
+
+.centerColumn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.paddingTop{
+    padding: 15px 0 0 0;
+}

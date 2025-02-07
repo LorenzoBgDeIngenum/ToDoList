@@ -3,5 +3,4 @@ export interface ToDoTask {
     name : string,
     description : string,
     columnId : number,
-    columnNumber : number
 }

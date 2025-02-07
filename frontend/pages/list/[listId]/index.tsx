@@ -1,12 +1,15 @@
+import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import Head from 'next/head';
+import { useDndMonitor } from "@dnd-kit/core";
+import { Grid, GridItem, Button, Textarea } from "@chakra-ui/react";
+
 import { ToDoList } from "@/models/toDoList";
 import { Column } from "@/models/column";
 import ColumnList from "@/components/columnList";
-import { useState, useEffect } from "react";
-import { useRequestEngine } from '@/contexts/requestEngineContext'; 
-import { Grid, GridItem, Button, Textarea } from "@chakra-ui/react";
 import Droppable from "@/components/droppable";
-import { useRouter } from "next/router";
-import {DndContext, useDndMonitor} from '@dnd-kit/core';
+import { useRequestEngine } from "@/contexts/requestEngineContext";
+
 
 export default function List() {
     const [toDoList, setToDoList] = useState<ToDoList>();
@@ -38,7 +41,6 @@ export default function List() {
         if(event.collisions.length > 0){
 
           if(taskData.oldColumnId != event.collisions[0].id){
-            taskData.columnNumber = event.collisions[0].data.droppableContainer.data.current.order;
             taskData.columnId = event.collisions[0].id;
             console.log("Data after ");
             console.log(taskData);
@@ -95,6 +97,10 @@ export default function List() {
 
     return (
       <div>
+        <Head>
+          <title>{toDoList?.name}</title>
+        </Head>
+
         {loading &&(
           <div>
             <p>Loading</p>

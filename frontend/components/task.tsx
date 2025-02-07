@@ -1,9 +1,12 @@
-import { ToDoTask } from "@/models/toDoTask";
-import { Box, Grid, GridItem, Button } from '@chakra-ui/react'
+import { Box, Grid, GridItem, Button } from '@chakra-ui/react';
+
 import { useRequestEngine } from '@/contexts/requestEngineContext';
-import { useState, useEffect } from "react";
-import {useDraggable} from '@dnd-kit/core';
-import {CSS} from '@dnd-kit/utilities';
+import { ToDoTask } from "@/models/toDoTask";
+
+import { useDraggable } from '@dnd-kit/core';
+
+import { CSS } from '@dnd-kit/utilities';
+
 
 export default function Task(props) {
     const task: ToDoTask = props.task;
@@ -14,7 +17,7 @@ export default function Task(props) {
         name: task.name,
         description: task.description,
         oldColumnId: task.columnId,
-        columnNumber: task.columnNumber,
+        displace: 0,
         columnId: null,
         id: task.id
       },
@@ -33,14 +36,13 @@ export default function Task(props) {
         });
     }
 
-    function handleGoClick(taskId: number, direction: number, add: number) {
+    function handleGoClick(taskId: number, direction: number) {
       const ids = [props.leftColumnId, props.rightColumnId];
       const taskData = {
         id: task.id,
         name: task.name,
         description: task.description,
-        columnId: ids[direction],
-        columnNumber: task.columnNumber + add
+        columnId: ids[direction]
       }
 
       requestEngine.modifyTask(taskData)
@@ -64,23 +66,23 @@ export default function Task(props) {
           
           {props.leftColumnId && (
           <GridItem  bg='#fff' className="taskButton">
-            <Button onClick={() => handleGoClick(task.id, 0, -1)}>Go left</Button>
+            <Button onClick={() => handleGoClick(task.id, 0)}>Go left</Button>
           </GridItem>
           )}
           {!props.leftColumnId && (
           <GridItem  bg='#fff' className="taskButton">
-            <Button onClick={() => handleGoClick(task.id, 0, -1)} disabled>Go left</Button>
+            <Button onClick={() => handleGoClick(task.id, 0)} disabled>Go left</Button>
           </GridItem>
           )}
 
           {props.rightColumnId && (
           <GridItem  bg='#fff' className="taskButton">
-            <Button onClick={() => handleGoClick(task.id, 1, 1)}>Go right</Button>
+            <Button onClick={() => handleGoClick(task.id, 1)}>Go right</Button>
           </GridItem>
           )}
           {!props.rightColumnId && (
           <GridItem  bg='#fff' className="taskButton">
-            <Button onClick={() => handleGoClick(task.id, 1, 1)} disabled>Go right</Button>
+            <Button onClick={() => handleGoClick(task.id, 1)} disabled>Go right</Button>
           </GridItem>
           )}
 

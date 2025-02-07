@@ -1,7 +1,7 @@
 export default function Footer() {
     return (
         <footer>
-            By Ingenum Stagiaire
+            By Ingenum's Stagiaire
         </footer>
     )
 

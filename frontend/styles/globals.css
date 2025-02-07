@@ -5,8 +5,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: rgb(2,0,36);
-    --background: linear-gradient(151deg, rgba(2,0,36,1) 0%, rgba(5,5,65,1) 35%, rgba(9,51,62,1) 77%, rgba(15,102,120,1) 100%);
+    --background: rgb(1,0,36);
+    --background: linear-gradient(127deg, rgba(1,0,36,1) 0%, rgba(5,11,47,1) 35%, rgba(27,38,70,1) 100%);
     --foreground: #ededed;
   }
 }
@@ -44,7 +44,7 @@ header {
 main {
   display: flex;
   flex-direction: column;
-  justify-content: flex;
+  justify-content: center;
   align-items: center;
 }
 
@@ -86,3 +86,6 @@ p{
   font-size: 1.2em;
 }
 
+input{
+  padding: 0 0 0 10px;
+}

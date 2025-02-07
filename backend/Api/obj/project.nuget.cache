@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "1L0WGqXEqhQ=",
+  "dgSpecHash": "EaVqiWFnQJk=",
   "success": true,
   "projectFilePath": "/Users/lorenzo/ToDoList/backend/Api/Api.csproj",
   "expectedPackageFiles": [
     "/Users/lorenzo/.nuget/packages/azure.core/1.20.0/azure.core.1.20.0.nupkg.sha512",
     "/Users/lorenzo/.nuget/packages/azure.identity/1.5.0/azure.identity.1.5.0.nupkg.sha512",
+    "/Users/lorenzo/.nuget/packages/bcrypt.net-next/4.0.3/bcrypt.net-next.4.0.3.nupkg.sha512",
     "/Users/lorenzo/.nuget/packages/microsoft.aspnetcore.openapi/7.0.20/microsoft.aspnetcore.openapi.7.0.20.nupkg.sha512",
     "/Users/lorenzo/.nuget/packages/microsoft.bcl.asyncinterfaces/1.0.0/microsoft.bcl.asyncinterfaces.1.0.0.nupkg.sha512",
     "/Users/lorenzo/.nuget/packages/microsoft.csharp/4.5.0/microsoft.csharp.4.5.0.nupkg.sha512",

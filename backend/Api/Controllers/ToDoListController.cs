@@ -16,8 +16,9 @@ public class ToDoListController : ControllerBase
 
     // GET: /ToDoList
     [HttpGet]
-    public ActionResult<IEnumerable<User>> GetToDoLists()
+    public ActionResult<IEnumerable<ToDoList>> GetToDoLists()
     {
+        
         return Ok(_context.ToDoLists.ToList());
     }
     
@@ -25,26 +26,44 @@ public class ToDoListController : ControllerBase
     [HttpGet("{id}")]
     public ActionResult<ToDoList> GetToDoList(int id)
     {
-        var toDolist = _context.ToDoLists.Find(id);
-        if (toDolist == null) return NotFound();
-        return Ok(toDolist);
+        var toDoList = _context.ToDoLists.Find(id);
+        if (toDoList == null) return NotFound();
+        
+        return Ok(toDoList);
     }
     
-    // GET: /ToDoList/byUserId/id
-    [HttpGet("byUserId/{id}")]
-    public ActionResult<ToDoList> GetToDoLists(int id)
+    // GET: /ToDoList/byUserId/{userId}
+    [HttpGet("byUserId/{userId}")]
+    public ActionResult<IEnumerable<ToDoList>> GetToDoListsByUserId(int userId)
     {
-        var toDoLists = _context.ToDoLists.Where(t => t.userId.Equals(id)).ToList();
-        return Ok(toDoLists); 
-    }
+        var toDoLists = _context.ToDoLists.Where(t => t.UserId == userId).ToList();
     
+        if (toDoLists == null || !toDoLists.Any())
+        {
+            
+            return NotFound($"No to-do lists found for user with ID {userId}");
+        }
+
+        return Ok(toDoLists);
+    }
+
     // POST: /ToDoList/add
     [HttpPost("add")]
     public ActionResult<ToDoList> CreateToDoList(ToDoList toDoList)
     {   
         _context.ToDoLists.Add(toDoList);
         _context.SaveChanges();
-        return CreatedAtAction(nameof(CreateToDoList), new { id = toDoList.Id }, toDoList);
-    }
 
+        var columns = new List<Column>
+        {
+            new Column { Name = "To Do", ListId = toDoList.Id, Order = 1 },
+            new Column { Name = "In Progress", ListId = toDoList.Id, Order = 2 },
+            new Column { Name = "Done", ListId = toDoList.Id, Order = 3 }
+        };
+        
+        _context.Columns.AddRange(columns);
+        _context.SaveChanges();
+
+        return CreatedAtAction(nameof(GetToDoList), new { id = toDoList.Id }, toDoList);
+    }
 }
