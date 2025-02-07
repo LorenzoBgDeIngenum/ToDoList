@@ -35,22 +35,17 @@ export default function List() {
 
     function handleDragEnd(event) {
         const taskData = event.active.data.current;
-        console.log("Data before ");
-        console.log(taskData);
 
         if(event.collisions.length > 0){
-
           if(taskData.oldColumnId != event.collisions[0].id){
             taskData.columnId = event.collisions[0].id;
-            console.log("Data after ");
-            console.log(taskData);
 
             requestEngine.modifyTask(taskData)
             .then((response) => {
-                console.log(response);
                 if(response === 200) {
                     setRefreshTrigger(prev => prev + 1);
                 }
+
             });
           }
         }
