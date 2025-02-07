@@ -1,1 +1,1 @@
-Projet réaliser pendant la première semaine de stage chez Ingenum.
+Project carried out during the first week of internship at Ingenum.
