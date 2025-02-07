@@ -96,7 +96,7 @@ export default function Home() {
               <h2>Login</h2>
               <form onSubmit={handleLoginFormSubmit}>
                 <label>Mail: <input type="text" name="mail" /></label>
-                <label>Password: <input type="text" name="password" /></label>
+                <label>Password: <input type="password" name="password" /></label>
                 <input type="submit" value="Submit" />
               </form>
             </div>
@@ -107,7 +107,7 @@ export default function Home() {
               <h2>Register</h2>
               <form onSubmit={handleRegisterFormSubmit}>
                 <label>Mail: <input type="text" name="mail" /></label>
-                <label>Password: <input type="text" name="password" /></label>
+                <label>Password: <input type="password" name="password" /></label>
                 <input type="submit" value="Submit" />
               </form>
             </div>
